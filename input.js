@@ -12,7 +12,7 @@ const setupInput = function(conn) {
   stdin.setEncoding('utf8');
   stdin.resume();
   stdin.on("data", handleUserInput);
-
+  
   return stdin;
 };
 
@@ -33,5 +33,6 @@ const handleUserInput = function(key) {
     dir = setInterval(() => connection.write("Move: right"), 50); 
   }
 };
+
 
 module.exports = { setupInput };

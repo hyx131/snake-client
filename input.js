@@ -3,6 +3,7 @@
  * Specifically, so that we can handle user input via stdin
  */
 let connection;
+let dir;
 
 const setupInput = function(conn) {
   connection = conn;
@@ -19,13 +20,17 @@ const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   } else if (key === "w") {
-    connection.write("Move: up");
+    clearInterval(dir);
+    dir = setInterval(() => connection.write("Move: up"), 50); 
   } else if (key === "a") {
-    connection.write("Move: left");
+    clearInterval(dir);
+    dir = setInterval(() => connection.write("Move: left"), 50); 
   } else if (key === "s") {
-    connection.write("Move: down");
+    clearInterval(dir);
+    dir = setInterval(() => connection.write("Move: down"), 50); 
   } else if (key === "d") {
-    connection.write("Move: right");
+    clearInterval(dir);
+    dir = setInterval(() => connection.write("Move: right"), 50); 
   }
 };
 
